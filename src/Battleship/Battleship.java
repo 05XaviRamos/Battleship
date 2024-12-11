@@ -28,21 +28,21 @@ public class Battleship {
 		}
 		do {
 
-            System.out.print("Introdueix les coordenades de A1 a E5 (ex: A1, B2): ");
+            System.out.print("Imput the coordinates from A1 to E5 (ex: A1, B2): ");
             entrada = in.nextLine().toUpperCase();
 	        columna = entrada.charAt(0) - 'A'; // A -> 0, B -> 1, C -> 2, D -> 3, E -> 4
             fila = Character.getNumericValue(entrada.charAt(1)) - 1;
             if ((fila == filaVaixell1 && columna == columnaVaixell1) || (fila == filaVaixell2 && columna == columnaVaixell2)) {
-            	System.out.println(entrada + " = TOCAT I ENFONSAT");
+            	System.out.println(entrada + " = HIT");
             	matriu[fila][columna] = 'V';
             	vaixell--;
             	comptador++;
             }
 			if (fila < 0 || fila >= 5 || columna < 0 || columna >= 5) {
-                System.out.println("Coordenades no vàlides. Prova de nou.");
+                System.out.println("Coordinates not valid. Try again.");
             } else if ((fila != filaVaixell1 || columna != columnaVaixell1) && (fila != filaVaixell2 || columna != columnaVaixell2)){
             	matriu[fila][columna] = 'A';
-            	System.out.println(entrada + " = AIGUA");
+            	System.out.println(entrada + " = WATER");
 	            comptador++;
             } 
 			System.out.printf("%11S%n", "A B C D E");
@@ -56,6 +56,6 @@ public class Battleship {
 				}	
 			}           	            
         } while (vaixell > 0) ;		
-        System.out.println("ENHORABONA HAS TROBAT ELS VAIXELLS EN " + comptador + " JUGADES");
+        System.out.println("CONGRATULATIONS, YOU HAVE FOUND ALL OF THE SHIPS IN " + comptador + " TRIES");
 	}
 }
